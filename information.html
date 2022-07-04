@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Space - 房型介紹</title>
+
+    <link rel="img/index_icon/home-solid" href="...">
+    <meta name="description" content="訂房網站, 訂房, 旅遊">
+    <meta name='description' content='訂房網站, 訂房, 旅遊' />
+
+    <meta property="og:title" content="訂房網站" />
+    <meta property="og:description" content="訂房網站">
+    <meta property="og:type" content="訂房網站" />
+    <link href="img/index_icon/home-solid.svg" rel="icon" />
+
+    <link rel="stylesheet" href="style/components/style.css">
+    <link rel="stylesheet" href="style/components/room.css">
+
+</head>
+
+<body>
+
+    <header class="container-fluid roomPhtoHeader p-0">
+
+        <div class="row photo my-lightbox-toggle w-100">
+
+        </div>
+    </header>
+
+
+
+    <section class="container-fluid mt-4 px-5">
+
+        <div class="row d-flex justify-content-evenly">
+            <div class="col-6">
+                <div class="row d-flex flex-column showdata">
+                    <div class="col-8"></div>
+                    <div class="col-2"></div>
+                    <div class="col-2"></div>
+                </div>
+
+            </div>
+            <div class="col-2 text-end pe-4 price">
+            </div>
+
+
+            <!-- calendar -->
+            <div class="col-4">
+                <div class="content w-100">
+                    <div class="calendar-container">
+                        <div class="calendar">
+                            <div class="year-header">
+                                <span class="left-button bi bi-chevron-left" id="prev"> </span>
+                                <span class="year" id="label"></span>
+                                <span class="right-button bi bi-chevron-right" id="next"> </span>
+                            </div>
+
+                            <table class="months-table w-100">
+                                <tbody>
+                                    <tr class="months-row">
+                                        <td class="month">Jan</td>
+                                        <td class="month">Feb</td>
+                                        <td class="month">Mar</td>
+                                        <td class="month">Apr</td>
+                                        <td class="month">May</td>
+                                        <td class="month">Jun</td>
+                                        <td class="month">Jul</td>
+                                        <td class="month">Aug</td>
+                                        <td class="month">Sep</td>
+                                        <td class="month">Oct</td>
+                                        <td class="month">Nov</td>
+                                        <td class="month">Dec</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="days-table w-100">
+                                <td class="day">日</td>
+                                <td class="day">一</td>
+                                <td class="day">二</td>
+                                <td class="day">三</td>
+                                <td class="day">四</td>
+                                <td class="day">五</td>
+                                <td class="day">六</td>
+                            </table>
+                            <div class="frame">
+                                <table class="dates-table w-100">
+                                    <tbody class="tbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="button mt-4" id="add-button" data-bs-toggle="modal"
+                        data-bs-target="#addButton">預約時段</button>
+                    <div class="boxshadow"></div>
+
+                    <div class="modal fade" id="addButton" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex flex-column align-items-start mx-4">
+                                    <h4 class="modal-title text-start" id="exampleModalLabel">預約時段</h4>
+
+                                    <div class="lineGroup d-flex my-2">
+                                        <div class="line lineModel"></div>
+                                        <div class="line lineModel"></div>
+                                        <div class="line lineModel"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-body mx-4">
+                                    <form>
+                                        <div class="row mb-3">
+                                            <label for="inputName" class="col-4 col-form-label">姓名</label>
+                                            <div class="col-8">
+                                                <input type="text" class="form-control" id="inputName">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputTel" class="col-4 col-form-label">電話</label>
+                                            <div class="col-8">
+                                                <input type="tel" class="form-control" id="inputTel">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="inputDay" class="col-4 col-form-label">預約起迄</label>
+                                            <form class="row gx-3 gy-2 align-items-center">
+                                                <div class="col">
+                                                    <label class="visually-hidden"
+                                                        for="specificSizeInputName">2022/8/15</label>
+                                                    <input type="text" class="form-control" id="specificSizeInputName"
+                                                        placeholder="2022/8/15" disabled>
+                                                </div>
+                                                <p class="col-2 text-center">~</p>
+                                                <div class="col">
+                                                    <label class="visually-hidden"
+                                                        for="specificSizeSelect">Preference</label>
+                                                    <select class="form-select" id="specificSizeSelect">
+                                                        <option selected>Choose...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </form>
+
+                                    <div class="bg-light">
+                                        <div class="container">
+                                            <div class="row row-cols-1">
+                                                <div class="col d-flex d-flex justify-content-center">
+                                                    <p class="me-auto">平日時段</p>
+                                                    <p class="text-end">1夜</p>
+                                                </div>
+                                                <div class="col d-flex align-self-center">
+                                                    <p class="me-auto">假日時段</p>
+                                                    <p class="text-end">1夜</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h3 class="text-danger text-end">= 2549</h3>
+                                    </div>
+                                </div>
+                                <div class="modal-footer mx-4">
+                                    <button type="button" class="btn btn-light me-auto rounded-0"
+                                        data-bs-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-secondary rounded-0"
+                                        data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">確定預約</button>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex flex-column align-items-start mx-4">
+                                    <h4 class="modal-title text-start" id="exampleModalLabel">預約時段</h4>
+
+                                    <div class="lineGroup d-flex my-2">
+                                        <div class="line lineModel"></div>
+                                        <div class="line lineModel"></div>
+                                        <div class="line lineModel"></div>
+                                    </div>
+                                </div>
+                                <div class="modal-body d-flex justify-content-center">
+                                    <img class="infoImg" src="img/info_icon/tick-inside-circle.svg" alt="">
+                                </div>
+                                <div class="modal-footer mx-4">
+                                    <button class="btn btn-secondary rounded-0" data-bs-target="#exampleModalToggle"
+                                        data-bs-toggle="modal">回頁面</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/room.js"></script>
+</body>
+
+</html>

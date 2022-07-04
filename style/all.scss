@@ -1,0 +1,150 @@
+@import "components/reset";
+
+body {
+    background-image: url('');
+    background-size: cover;
+    background-position: center center;
+     font-family: 'NotoSansCJKtc-Medium';
+     height: 100vh;
+     margin: 0;
+     transition: all 1.2s ease-in .3s;
+ 
+  }
+  .content {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between; 
+  }
+ 
+ 
+  .top {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+ 
+  }
+ 
+ 
+  .logoHome {
+      height: 168px;
+     width: 100%;
+     background: url('../img/index_icon/logo_white.svg') no-repeat left;
+     text-indent: 150%;
+     overflow: hidden;
+     white-space: nowrap;
+     margin: 0 5%;
+ 
+  }
+ 
+  .list {
+    background-color: white;
+    width: 30%;
+    padding: 2% 0% 7% 3%;
+ 
+    li  {
+         padding: 5% 0;
+         position: relative;
+         // transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+         
+         &::before {
+           content: '';
+           width: 0;
+           height: 0;
+           background: #000000;
+           position: absolute;
+           left: -32px;
+           top: 50%;
+           transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95); 
+         }
+ 
+         &:hover {
+           &::before {
+             content: '';
+             width: 16px;
+             height: 1px;
+             background: #000000;
+             position: absolute;
+             left: -32px;
+             top: 50%;
+           }
+ 
+         }
+ 
+         
+       }
+       li a {
+         text-decoration: none;
+         font-family: NotoSansCJKtc-Light;
+         font-size: 14px;
+         color: #000000;
+         letter-spacing: 1.46px;
+ 
+         
+         
+      }
+ 
+      
+   }
+ 
+   .min {
+     display: flex;
+     justify-content: flex-end;
+     margin-right: 14.5%;
+ 
+     a {
+       margin-right: 1%;
+ 
+     }
+ 
+     img {
+       height: 20px;
+     }
+ 
+   }
+ 
+ 
+   .botoom {
+ 
+     display: flex;
+     justify-content: space-between;
+     margin: 0 4%;
+     margin-bottom: 3%;
+ 
+     .roomNuber {
+       font-family: NotoSansCJKtc-DemiLight;
+       font-size: 66px;
+       color: #FFFFFF;
+     }
+ 
+     .roomName {
+       font-family: NotoSansCJKtc-DemiLight;
+       font-size: 24px;
+       color: #FFFFFF;
+       letter-spacing: 2.51px;
+     }
+ 
+ 
+     .detail {
+ 
+       li {
+         
+         a {
+           display: flex;
+           align-items: center;
+           margin-bottom: 5%;
+           font-family: NotoSansCJKtc-DemiLight;
+           font-size: 14px;
+           text-decoration: none;
+           color: #FFFFFF;
+         }
+   
+         img {
+           height: 20px;
+           margin-right: 2%;
+         }
+   
+       }
+   
+     }
+   }
