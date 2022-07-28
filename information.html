@@ -24,6 +24,7 @@
 <body>
 
     <header class="container-fluid roomPhtoHeader p-0">
+        <a href="index.html"><h1 class="hideH1">我是LOGO</h1></a>
 
         <div class="row photo my-lightbox-toggle w-100">
 
@@ -36,10 +37,63 @@
 
         <div class="row d-flex justify-content-evenly">
             <div class="col-6">
-                <div class="row d-flex flex-column showdata">
-                    <div class="col-8"></div>
-                    <div class="col-2"></div>
-                    <div class="col-2"></div>
+                <div class="row d-flex flex-column">
+                    <div class="col-8 w-100 showdata"></div>
+                    <div class="col-2 w-100 d-flex check"></div>
+                    <div class="col-2 mt-3 mb-5 w-100 p-0">
+
+                        <ul class="row row-cols-3 m-3 bg-light p-4">
+                            <li class="col d-flex align-items-center p-0 mb-4 item Wi-Fi"><img
+                                    class="img-fluid listItme" src="../img/info_icon/wifi.svg" alt="">
+                                <p class="mb-0 ms-3">WIFI</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Television "><img class="img-fluid listItme"
+                                    src="../img/info_icon/phone.svg" alt="">
+                                <p class="mb-0 ms-3">電話</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Great-View"><img
+                                    class="img-fluid listItme" src="../img/info_icon/mountain-range.svg" alt="">
+                                <p class="mb-0 ms-3">漂亮的視野</p>
+                            </li>
+                            <li class="col d-flex align-items-center p-0 mb-4 item Breakfast"><img
+                                    class="img-fluid listItme" src="../img/info_icon/breakfast.svg" alt="">
+                                <p class="mb-0 ms-3">早餐</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Air-Conditioner"><img
+                                    class="img-fluid listItme" src="../img/info_icon/breeze.svg" alt="">
+                                <p class="mb-0 ms-3">空調</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Smoke-Free"><img
+                                    class="img-fluid listItme" src="../img/info_icon/no-smoke-symbol.svg" alt="">
+                                <p class="mb-0 ms-3">禁止吸煙</p>
+                            </li>
+                            <li class="col d-flex align-items-center p-0 mb-4 item Mini-Bar"><img
+                                    class="img-fluid listItme Mini-Bar" src="../img/info_icon/Bar.svg" alt="">
+                                <p class="mb-0 ms-3">Mini Bar</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Refrigerator"><img class="img-fluid listItme"
+                                    src="../img/info_icon/wifi.svg" alt="">
+                                <p class="mb-0 ms-3">冰箱</p>
+                            </li>
+                            <li class="col d-flex align-items-center mb-4 item Child-Friendly"><img
+                                    class="img-fluid listItme" src="../img/info_icon/crawling-baby-silhouette.svg"
+                                    alt="">
+                                <p class="mb-0 ms-3">適合兒童</p>
+                            </li>
+                            <li class="col d-flex align-items-center p-0 item Room-Service"><img
+                                    class="img-fluid listItme" src="../img/info_icon/room_service.svg" alt="">
+                                <p class="mb-0 ms-3">Room Service</p>
+                            </li>
+                            <li class="col d-flex align-items-center item Sofa"><img class="img-fluid listItme"
+                                    src="../img/info_icon/wifi.svg" alt="">
+                                <p class="mb-0 ms-3">沙發</p>
+                            </li>
+                            <li class="col d-flex align-items-center item Pet-Friendly"><img class="img-fluid listItme"
+                                    src="../img/info_icon/dog.svg" alt="">
+                                <p class="mb-0 ms-3">寵物攜帶</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
@@ -52,30 +106,33 @@
                 <div class="content w-100">
                     <div class="calendar-container">
                         <div class="calendar">
-                            <div class="year-header">
+                            <div class="year-header align-self-center">
                                 <span class="left-button bi bi-chevron-left" id="prev"> </span>
-                                <span class="year" id="label"></span>
+                                <span class="year" id="label">2022 / </span>
+                                <span class="month" id="label"></span>
                                 <span class="right-button bi bi-chevron-right" id="next"> </span>
                             </div>
 
-                            <table class="months-table w-100">
-                                <tbody>
-                                    <tr class="months-row">
-                                        <td class="month">Jan</td>
-                                        <td class="month">Feb</td>
-                                        <td class="month">Mar</td>
-                                        <td class="month">Apr</td>
-                                        <td class="month">May</td>
-                                        <td class="month">Jun</td>
-                                        <td class="month">Jul</td>
-                                        <td class="month">Aug</td>
-                                        <td class="month">Sep</td>
-                                        <td class="month">Oct</td>
-                                        <td class="month">Nov</td>
-                                        <td class="month">Dec</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <!-- <table class="months-table w-100">
+                                <tbody> -->
+                                    <!-- <span class="left-button bi bi-chevron-left" id="prev"> </span> -->
+                                    <!-- <tr class="months-row">
+                                        <td class="monthtt">Jan</td>
+                                        <td class="monthtt">Feb</td>
+                                        <td class="monthtt">Mar</td>
+                                        <td class="monthtt">Apr</td>
+                                        <td class="monthtt">May</td>
+                                        <td class="monthtt">Jun</td>
+                                        <td class="monthtt">Jul</td>
+                                        <td class="monthtt">Aug</td>
+                                        <td class="monthtt">Sep</td>
+                                        <td class="monthtt">Oct</td>
+                                        <td class="monthtt">Nov</td>
+                                        <td class="monthtt">Dec</td>
+                                    </tr> -->
+                                    <!-- <span class="right-button bi bi-chevron-right" id="next"> </span> -->
+                                <!-- </tbody>
+                            </table> -->
 
                             <table class="days-table w-100">
                                 <td class="day">日</td>
