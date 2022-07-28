@@ -1,7 +1,3 @@
-// import axios from '../node_modules/axios'
-
-// const axios = require('axios').default;
-
 const roomList = [];
 
 let list = document.querySelector('.list');
@@ -26,8 +22,6 @@ this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/rooms')
     showData(roomList);
   }
 });
-
-
 
 //渲染畫面
 function showData(roomList) { 
@@ -75,99 +69,16 @@ function updata(id, index) {
 }
 
 
-
+//房間選擇 事件監聽
 list.addEventListener('click', function(e) { 
   e.stopPropagation();
   e.preventDefault();
   const qq = e.target.dataset.id;
-  // console.log(qq);
   if(e.target.nodeName !== 'A') {
     return;
   }else {
+    localStorage.setItem('room', qq);
+     window.location.href = 'information.html';
 
-    axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/' + qq)
-        .then((res) => {
-          if (res.data.success) {
-    // roomList.push(...res.data.items);
-    // showData(roomList);
-            // console.log(res.config.url);
-            window.location.href = 'information.html';
-            // rrr();
-          }
-        });
-    
-    // axios.delete('https://challenge.thef2e.com/api/thef2e2019/stage6/rooms/')
-    // .then(function (response) {
-    //   // console.log(response);
-
-    //   axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/' + qq)
-    //     .then((res) => {
-    //       if (res.data.success) {
-    // // roomList.push(...res.data.items);
-    // // showData(roomList);
-    //         console.log('res.data');
-    //         // rrr();
-    //       }
-    //     });
-    // })
-    // .catch(function (error) {
-    //   console.log('error');
-    // });
   }
-})
-//   const urrl = 'https://challenge.thef2e.com/api/thef2e2019/stage6/room/';
-
-//   function rrr(urrl , it) {
-//     let oo = res.data;
-//     console.log(oo);
-//   }
-
-
-  
-
-  
-
-
-//   this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/{id}')
-// .then((res) => {
-//   if (res.data.success) {
-//     // roomList.push(...res.data.items);
-//     // showData(roomList);
-//     console.log(res.data);
-//   }
-// });
-  
-// })
-
-
-// function funcB() {
-//   return fetch('https://challenge.thef2e.com/api/thef2e2019/stage6/room/{id}', {
-//     method: 'GET',
-//     headers: {
-//       Acctept: 'application/json',
-//       Authorization: 'Bearer mWhX16Arl9JxhImidZM2YedXzyPS1181XyHkAQSNAQ4HSuR63SVWFtaalgim',
-//     },
-//   })
-//   .then((res) => {
-//     console.log('yf');
-//   })
-// }
-
-// const roomid = [];
-
-// list.addEventListener('click', (e) =>{ 
-//   e.stopPropagation();
-//   e.preventDefault();
-
-//   this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/{id}')
-// .then((res) => {
-//   if (res.data.success) {
-//     // roomList.push(...res.data.items);
-//     // showData(roomList);
-//     console.log(res.data)
-//   }
-// });
-  
-// })
-// list.addEventListener('load', this.refresh.bind(this), false)
-
+});

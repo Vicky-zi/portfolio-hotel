@@ -7,8 +7,10 @@ $(document).ready(function(){
     var date = new Date();
     var today = date.getDate();
     // Set click handlers for DOM elements
-    $(".right-button").click({date: date}, next_year);
-    $(".left-button").click({date: date}, prev_year);
+    // $(".right-button").click({date: date}, next_year);
+    // $(".left-button").click({date: date}, prev_year);
+    $(".right-button").click({date: date}, next_month);
+    $(".left-button").click({date: date}, prev_month);
     $(".month").click({date: date}, month_click);
     $("#add-button").click({date: date}, new_event);
     // Set current month as active
@@ -65,7 +67,8 @@ function init_calendar(date) {
     }
     // Append the last row and set the current year
     calendar_days.append(row);
-    $(".year").text(year);
+    $(".year").text(year + ' / ');
+    $(".month").text(+month);
 }
 
 // Get the number of days in a given month/year
@@ -95,24 +98,23 @@ function month_click(event) {
     date.setMonth(new_month);
     init_calendar(date);
 }
-
-// Event handler for when the year right-button is clicked
-function next_year(event) {
+// Event handler for when the month right-button is clicked
+function next_month(event) {
     $("#dialog").hide(250);
     var date = event.data.date;
-    var new_year = date.getFullYear()+1;
-    $("year").html(new_year);
-    date.setFullYear(new_year);
+    var new_month = date.getMonth()+1;
+    $(".month").html(new_month);
+    date.setMonth(new_month);
     init_calendar(date);
 }
 
-// Event handler for when the year left-button is clicked
-function prev_year(event) {
+// Event handler for when the month left-button is clicked
+function prev_month(event) {
     $("#dialog").hide(250);
     var date = event.data.date;
-    var new_year = date.getFullYear()-1;
-    $("year").html(new_year);
-    date.setFullYear(new_year);
+    var new_month = date.getMonth()-1;
+    $("month").html(new_month);
+    date.setMonth(new_month);
     init_calendar(date);
 }
 

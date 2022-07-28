@@ -5,6 +5,8 @@
 
 const options = {
 	keyboard: true,
+  size: 'lg',
+  constrain: false
 };
 
 document.querySelectorAll('.my-lightbox-toggle').forEach((el) => el.addEventListener('click', (e) => {
@@ -15,6 +17,9 @@ document.querySelectorAll('.my-lightbox-toggle').forEach((el) => el.addEventList
 
 const data = [];
 let showdata = document.querySelector('.showdata');
+let datacheck = document.querySelector('.check');
+const getDataId = localStorage.getItem('room');
+
 
 // 初始創建 axios 實例
 axios = axios.create({
@@ -25,12 +30,13 @@ axios = axios.create({
     Authorization: 'Bearer mWhX16Arl9JxhImidZM2YedXzyPS1181XyHkAQSNAQ4HSuR63SVWFtaalgim',
   }
 });
-// 用實例真正呼叫 api
-this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/3Elqe8kfMxdZv5xFLV4OUeN6jhmxIvQSTyj4eTgIowfIRvF4rerA2Nuegzc2Rgwu')
+
+this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/'+ getDataId)
 .then((res) => {
   if (res.data.success) {
     data.push(...res.data.room);
     updata(data);
+    console.log(data[0]);
   }
 });
 
@@ -39,6 +45,7 @@ this.axios.get('https://challenge.thef2e.com/api/thef2e2019/stage6/room/3Elqe8kf
 function updata(data) {
     let headImg = '';
     let txt = '';
+    let check = '';
     let moe = '';
   
 
@@ -47,17 +54,17 @@ function updata(data) {
 
     data.forEach((item) => {
       headImg += `
-      <a href="index.html"><h1 class="hideH1">我是LOGO</h1></a>
+      
       <a href="${item.imageUrl[2]}" class="col-9 p-0" data-toggle="lightbox" data-gallery="hidden-images"><img class="img-fluid w-100 photoitem object-fit" src="${item.imageUrl[2]}" alt=""></a>
       <div class="col-3 p-0 d-flex flex-column photoitem">
           <a href="${item.imageUrl[1]}" class="col h-50 p-0" data-toggle="lightbox" data-gallery="hidden-images"><img class="img-fluid object-fit h-100 w-100" src="${item.imageUrl[1]}" alt=""></a>
           <a href="${item.imageUrl[0]}" class="col h-50 p-0" data-toggle="lightbox" data-gallery="hidden-images"><img class="img-fluid object-fit h-100 w-100" src="${item.imageUrl[0]}" alt=""></a>
       </div>`;
-      txt += `<div class="col-8 w-100">
+      txt += `
                 <h2 class="mb-5 nameH2">${item.name}</h2>
                 <p>GuestMax：${item.descriptionShort.GuestMax}~${item.descriptionShort.GuestMin}</p>
                 <p>Bed：${item.descriptionShort.Bed[0]}</p>
-                <p>Private-Bath：${item.descriptionShort}</p>
+                <p>Private-Bath：${item.descriptionShort['Private-Bath']}</p>
                 <p>Footage：${item.descriptionShort.Footage} m2</p>
                 <span>${item.description}</span>
 
@@ -65,11 +72,9 @@ function updata(data) {
                     <div class="line"></div>
                     <div class="line"></div>
                     <div class="line"></div>
-                </div>
-                
-            </div>
+                </div>`
 
-            <div class="col-2 w-100 d-flex">
+      check += `
             <div class="col">
                     <p class="p-0">Check In</p>
                     <h4>${item.checkInAndOut.checkInEarly} - ${item.checkInAndOut.checkInLate}</h4>
@@ -77,26 +82,7 @@ function updata(data) {
                 <div class="col">
                     <p class="p-0">Check Out</p>
                     <h4>${item.checkInAndOut.checkOut}</h4>
-                </div>
-
-            </div>
-            <div class="col-2 mt-3 mb-5 w-100 p-0">
-            
-              <div class="row row-cols-3 m-3 bg-light p-4">
-                  <div class="col d-flex align-items-center p-0 mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/wifi.svg" alt=""><p class="mb-0 ms-3">WIFI</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/phone.svg" alt=""><p class="mb-0 ms-3">電話</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/mountain-range.svg" alt=""><p class="mb-0 ms-3">漂亮的視野</p></div>
-                  <div class="col d-flex align-items-center p-0 mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/breakfast.svg" alt=""><p class="mb-0 ms-3">早餐</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/breeze.svg" alt=""><p class="mb-0 ms-3">空調</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/no-smoke-symbol.svg" alt=""><p class="mb-0 ms-3">禁止吸煙</p></div>
-                  <div class="col d-flex align-items-center p-0 mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/Bar.svg" alt=""><p class="mb-0 ms-3">Mini Bar</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/wifi.svg" alt=""><p class="mb-0 ms-3">冰箱</p></div>
-                  <div class="col d-flex align-items-center mb-4 item"><img class="img-fluid listItme" src="../img/info_icon/crawling-baby-silhouette.svg" alt=""><p class="mb-0 ms-3">適合兒童</p></div>
-                  <div class="col d-flex align-items-center p-0 item"><img class="img-fluid listItme" src="../img/info_icon/room_service.svg" alt=""><p class="mb-0 ms-3">Room Service</p></div>
-                  <div class="col d-flex align-items-center item"><img class="img-fluid listItme" src="../img/info_icon/wifi.svg" alt=""><p class="mb-0 ms-3">沙發</p></div>
-                  <div class="col d-flex align-items-center item"><img class="img-fluid listItme" src="../img/info_icon/dog.svg" alt=""><p class="mb-0 ms-3">寵物攜帶</p></div>
-              </div>
-            </div>`
+                </div>`
 
       moe += `<h3>NT.${item.normalDayPrice}</h3>
       <p>平日(一~四)</p>
@@ -105,15 +91,85 @@ function updata(data) {
     });
   
     showdata.innerHTML= txt;
+    datacheck.innerHTML = check;
     price.innerHTML = moe;
     photo.innerHTML = headImg;
+    
+    sever();
+  
   
 };
 
+function sever() { 
+  const BreakfastItem = document.querySelector('.Breakfast');
+  const WifiItem = document.querySelector('.Wi-Fi');
+  const MiniBar = document.querySelector('.Mini-Bar');
+  const GreatView = document.querySelector('.Great-View');
+  const AirConditioner = document.querySelector('.Air-Conditioner');
+  const SmokeFree = document.querySelector('.Smoke-Free');
+  const ChildFriendly = document.querySelector('.Child-Friendly');
+  const RoomService = document.querySelector('.Room-Service');
+  const Television = document.querySelector('.Television');
+  const Refrigerator = document.querySelector('.Refrigerator');
+  const Sofa = document.querySelector('.Sofa');
+  const PetFriendly = document.querySelector('.Pet-Friendly');
+
+    const qq = data[0].amenities;
+    //資料轉陣列
+    var a = Object.keys(qq).map(key => {
+      return {
+          [key]: qq[key]
+      }
+    })
+
+    //篩選陣列資料
+    const v =  a.filter(function(item) {
+      if(Object.values(item) == 'true') {
+        return item;
+      }
+      
+    })
+
+    
+    for(let i=0; i<v.length; i++) {
+      if(Object.keys(v[i]) == 'Breakfast') {
+        BreakfastItem.classList.add("itemTure");
+
+      } else if(Object.keys(v[i]) == 'Wi-Fi')  {
+        WifiItem.classList.add("itemTure");
+  
+      }else if (Object.keys(v[i]) == 'Child-Friendly'){
+        ChildFriendly.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Great-View'){
+        GreatView.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Mini-Bar'){
+        MiniBar.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Pet-Friendly'){
+        PetFriendly.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Refrigerator'){
+        Refrigerator.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Room-Service'){
+        RoomService.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Smoke-Free'){
+        SmokeFree.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Sofa'){
+        Sofa.classList.add("Sofa");
+      }else if (Object.keys(v[i]) == 'Television'){
+        Television.classList.add("itemTure");
+      }else if (Object.keys(v[i]) == 'Air-Conditioner'){
+        AirConditioner.classList.add("itemTure");
+      }
+    }
+
+}
+
+  
+  
+
 
 // <!-- Modal -->
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+var myModal = document.getElementById('myModal');
+var myInput = document.getElementById('myInput');
 
 myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
